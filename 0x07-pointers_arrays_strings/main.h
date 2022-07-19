@@ -13,6 +13,8 @@ char *_strstr(char *haystack, char *needle);
 char *_strstr(char *haystack, char *needle);
 void print_diagsums(int *a, int size);
 
+int _putchar(char c);
+
 
 
 #endif
