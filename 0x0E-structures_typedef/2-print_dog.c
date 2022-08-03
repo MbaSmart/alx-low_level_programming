@@ -25,6 +25,4 @@ void print_dog(struct dog *d)
 		else
 			printf("nil\n");
 	}
-	else
-		printf("nil\n");
 }
