@@ -1,6 +1,13 @@
 #ifndef MY_DOG
 #define MY_DOG
-
+/**
+ * struct dog - This is a template that details
+ * the chracteristics of dog.
+ *
+ * @name: the dog's name.
+ * @age: the dog's age.
+ * @owner: the dog's owner.
+ */
 struct dog
 {
 	char *name;
