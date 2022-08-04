@@ -1,53 +1,49 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-/**
- * *new_dog - this a pointer to the varible of
- * a new dog template
- * @name: this is the name of the dog.
- * @age: the age of the dog.
- * @owner: the owner of the dog.
- *
- * Return: new_dog
- */
 
+/**
+ * new_dog - create a new dog
+ * @name: char string name
+ * @age: int age
+ * @owner: char string owner
+ * Return: pointer to new dog
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dogee;
+	struct dog *doge;
 	int i, j, k;
-	char *o, *n;
+	char *n, *o;
 
-	dogee = malloc(sizeof(dog_t));
-	if (dogee == NULL)
-	{
+	doge = malloc(sizeof(struct dog));
+	if (doge == NULL)
 		return (NULL);
-	}
 
-	i = strlen(name);
-	j = strlen(owner);
+	for (i = 0; name[i] != '\0'; i++)
+		;
+	for (j = 0; owner[j] != '\0'; j++)
+		;
 
-	o = malloc(sizeof(char) * (i + 1));
-	if (o == NULL)
-	{
-		free(dogee);
-		free(o);
-		return (NULL);
-	}
-
-	n = malloc(sizeof(char) * (j + 1));
+	n = malloc(sizeof(char) * i + 1);
 	if (n == NULL)
 	{
-		free(n);
+		free(doge);
 		return (NULL);
 	}
-
+	o = malloc(sizeof(char) * j + 1);
+	if (o == NULL)
+	{
+		free(n);
+		free(doge);
+		return (NULL);
+	}
 	for (k = 0; k <= i; k++)
 		n[k] = name[k];
 	for (k = 0; k <= j; k++)
 		o[k] = owner[k];
-	dogee->owner = n;
-	dogee->age = age;
-	dogee->owner = o;
-	return (dogee);
+
+	doge->name = n;
+	doge->age = age;
+	doge->owner = o;
+
+	return (doge);
 }
